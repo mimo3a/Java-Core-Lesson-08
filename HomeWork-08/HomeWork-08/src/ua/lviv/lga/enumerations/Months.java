@@ -1,4 +1,14 @@
+ /* Logos Academy*/
+
 package ua.lviv.lga.enumerations;
+
+/***
+ * @since java 1.8
+ * @author mimo3a
+ * @version 1.1
+ * 
+ * 
+ */
 
 public enum Months {
 	JANUARY(31, Seasons.WINTER),
@@ -17,10 +27,13 @@ public enum Months {
 	private int days;
 	private Seasons season;
 	
+	/*docs for strings and integer*/
+	
 	Months(int days, Seasons season) {
 		this.days = days;
 		this.season = season;
 	}
+	/*This is constructor*/
 
 	public int getDays() {
 		return days;

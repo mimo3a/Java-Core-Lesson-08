@@ -1,9 +1,21 @@
+/*
+ * LOGOS academy
+ */
+
 package ua.lviv.lga.enumerations;
+/***
+ * @since java 1.8
+ * @author mimo3a
+ * @version 1.1
+ * 
+ * 
+ */
 
 
 import java.util.Scanner;
 
 public class Aooplication {
+	/*Name of class*/
 
 	static void menu() {
 		System.out.println("натисн≥ть 1 щоб перев≥рити чи ≥снуЇ такий м≥с€ць");
@@ -18,8 +30,9 @@ public class Aooplication {
 		System.out.println("натисн≥ть 10 щоб вивести на екран чи введений з консол≥ м≥с€ць маЇ парну к≥льк≥сть дн≥в");
 
 	}
+	/*General menu*/
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws WrongInputConsoleParametersException {
 		
 		Months [] monthMas = Months.values();
 		Scanner sc = new Scanner(System.in);
@@ -28,9 +41,24 @@ public class Aooplication {
 		
 		while(true) {
 			menu();
-			switch(sc.next()) {
+			
+			String enter =  sc.next();
+			System.out.println("Enter number is " + enter);
+			int i = Integer.parseInt(enter);
+			if(i < 1 || i > 10 ) {
+				String message = "Sach function dont exists";
+				throw new WrongInputConsoleParametersException(message);
+				/*Exception of aut area*/
+			} else {
+			
+			
+			
+			switch(enter) {
 			
 			case"1" : {
+				
+				/*чи ≥снуЇ такий м≥с€ць*/
+				
 				System.out.println("Enter month");
 				
 				sc = new Scanner(System.in);
@@ -41,6 +69,9 @@ public class Aooplication {
 				break;
 			}
 				case"2" : {
+					
+					/*вс≥ м≥с€ц≥ з такою ж порою року*/
+					
 					System.out.println("Enter month");
 					sc = new Scanner(System.in);
 					String month = sc.next().toUpperCase();
@@ -64,6 +95,9 @@ public class Aooplication {
 				}
 				
 				case"3" : {
+					
+					/*мають таку саму к≥льк≥сть дн≥в*/
+					
 					System.out.println("Enter month");
 					sc = new Scanner(System.in);
 					String month = sc.next().toUpperCase();
@@ -80,6 +114,9 @@ public class Aooplication {
 					break;
 				}
 				case"4" : {
+					
+					/*вс≥ м≥с€ц≥ €к≥ мають меншу к≥льк≥сть дн≥в*/
+					
 					System.out.println("Enter month");
 					sc = new Scanner(System.in);
 					String month = sc.next().toUpperCase();
@@ -101,6 +138,9 @@ public class Aooplication {
 					break;
 				}
 				case"5" : {
+					
+					/* вс≥ м≥с€ц≥ €к≥ мають б≥льшу к≥льк≥сть дн≥в*/
+					
 					System.out.println("Enter month");
 					sc = new Scanner(System.in);
 					String month = sc.next().toUpperCase();
@@ -124,6 +164,9 @@ public class Aooplication {
 					break;
 				}
 				case"6" : {
+					
+					/*наступну пору року*/
+					
 					System.out.println("Enter month");
 					sc = new Scanner(System.in);
 					String month = sc.next().toUpperCase();
@@ -152,6 +195,9 @@ public class Aooplication {
 				}
 			
 		        case"7" : {
+		        	
+		        	/*попередню пору року*/
+		        	
 		        	System.out.println("Enter month");
 					sc = new Scanner(System.in);
 					String month = sc.next().toUpperCase();
@@ -176,6 +222,8 @@ public class Aooplication {
 		        }
 		        case"8" : {
 		        	
+		        	/*вс≥ м≥с€ц≥ €к≥ мають парну к≥льк≥сть дн≥в*/
+		        	
 					for(Months m : monthMas) {
 						if(m.getDays() % 2 == 0) {
 							System.out.println(m.name());					
@@ -184,6 +232,9 @@ public class Aooplication {
 					break;
 				}
 		        case"9" : {
+		        	
+		        	/*вс≥ м≥с€ц≥ €к≥ мають непарну к≥льк≥сть дн≥в*/
+		        	
 		        	for(Months m : monthMas) {
 						if((m.getDays() % 2) != 0) {
 							System.out.println(m.name());					
@@ -193,6 +244,9 @@ public class Aooplication {
 		        	
 		        }
 		        case"10" : {
+		        	
+		        	/*чи введений з консол≥ м≥с€ць маЇ парну к≥льк≥сть дн≥в*/
+		        	
 		        	System.out.println("Enter month");
 					sc = new Scanner(System.in);
 					String month = sc.next().toUpperCase();
@@ -208,8 +262,10 @@ public class Aooplication {
 					} else {
 						break;
 					}
+					
 					break;
 		        }
+			}
 		        }
 			}
 		}
@@ -234,4 +290,6 @@ public class Aooplication {
 		}
 		return flag;
 	}
+	
+	/*“ј »… ћ≤—я÷№ ≤—Ќ”™  Ќ≈ ≤—Ќ”™*/
 }
